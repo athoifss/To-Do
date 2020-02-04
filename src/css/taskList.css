@@ -1,0 +1,10 @@
+.taskList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.taskList-task {
+  border: 1px solid red;
+}
