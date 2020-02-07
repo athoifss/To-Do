@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+:root {
+  --maincolor: #2e64fe;
+}
+.container {
+  width: 100%;
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+  height: 85vh;
+  background-color: wheat;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  background: var(--maincolor);
+  width: 100%;
+}
+.search form {
+  margin-right: 20px;
+}
+.taskList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 100px;
+}
+.task {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  padding-left: 15px;
+  align-items: center;
+  width: 30%;
+  margin: auto;
+  background: white;
+  color: #2e64fe;
+  border: 1px solid #2e64fe;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+.task .subtitle {
+  color: #6c6c66;
+  text-align: right;
+  font-size: 1em;
+  margin-left: auto;
+}
+.task .title {
+  text-align: left;
+}
+input:focus {
+  outline: none;
+}
+
+.button {
+  background: var(--maincolor);
+  color: white;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: auto;
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0 120px 20px 0;
+  border: none;
+  font-size: 2em;
+}
+
+.inputTask {
+  /* border: 1px solid red; */
+  width: 40%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0px 10px 26px 0;
+  animation: anim 0.5s;
+  z-index: 100;
+}
+
+.inputTask form {
+  width: 100%;
+}
+
+.inputTask form input[type="text"] {
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  background: white;
+  color: blue;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.show {
+  display: block;
+  background: none;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes anim {
+  from {
+    transform: translate(100px, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+input:focus {
+  outline: none;
+}
