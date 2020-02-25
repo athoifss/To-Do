@@ -1,14 +1,23 @@
-import React from "react";
-import "../css/button.css";
+import React, { useState, useEffect, useContext } from "react";
+import AppContext from "../context/context";
 
-class Button extends React.Component {
-  render = () => {
-    return (
-      <button onClick={this.props.buttonClick} className="button">
-        {this.props.content}
-      </button>
-    );
-  };
-}
+const Button = props => {
+  const buttonContext = useContext(AppContext);
+  console.log("buttonContext");
+  console.log(buttonContext);
+  const [buttonContent, setButtonContent] = useState(
+    buttonContext.addButtonContent
+  );
+
+  useEffect(() => {
+    console.log("button mounted");
+  });
+
+  return (
+    <button onClick={buttonContext.switchInputClass} className="button">
+      {buttonContent}
+    </button>
+  );
+};
 
 export default Button;

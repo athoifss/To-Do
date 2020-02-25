@@ -15,9 +15,8 @@ body {
 .wrapper {
   width: 90%;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 200px;
   height: 85vh;
-  background-color: wheat;
 }
 .header {
   display: flex;
@@ -31,6 +30,9 @@ body {
 }
 .search form {
   margin-right: 20px;
+}
+.search input {
+  padding: 8px 5px;
 }
 .taskList {
   display: flex;
@@ -85,7 +87,6 @@ input:focus {
 }
 
 .inputTask {
-  /* border: 1px solid red; */
   width: 40%;
   position: fixed;
   bottom: 0;
@@ -120,6 +121,42 @@ input:focus {
 
 .hide {
   display: none;
+}
+
+.login {
+  margin: auto;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.login form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+}
+.login input {
+  display: block;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login input:first-child {
+  margin-top: 30px;
+}
+.login input[type="submit"] {
+  width: 50%;
+  background: var(--maincolor);
+  border: none;
+  color: white;
+  padding: 0 5px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.login input[type="submit"]:hover {
+  background: blue;
 }
 
 @keyframes anim {

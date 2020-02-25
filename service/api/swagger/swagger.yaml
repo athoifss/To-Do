@@ -1,0 +1,122 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: To-Do-App
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: Provide token based auth
+
+paths:
+  /getTasks/{id}:
+    x-swagger-router-controller: hello_world
+    get:
+      operationId: getTasks
+      parameters:
+        - in: path
+          required: true
+          name: id
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/ArrayTask"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /login:
+    x-swagger-router-controller: hello_world
+    post:
+      operationId: loginPost
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/userLogin"
+      responses:
+        "200":
+          description: Sucess
+          schema:
+            $ref: "#/definitions/LoginResponseSuccess"
+        "401":
+          description: incorrect credentials
+          schema:
+            $ref: "#/definitions/LoginResponseFail"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+# complex objects have schema definitions
+definitions:
+  ErrorResponse:
+    properties:
+      message:
+        type: string
+  Task:
+    type: object
+    properties:
+      uid:
+        type: integer
+      user_id:
+        type: integer
+      title:
+        type: string
+      subtitle:
+        type: string
+
+  ArrayTask:
+    type: array
+    items:
+      $ref: "#/definitions/Task"
+
+  userLogin:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+
+  LoginResponseFail:
+    type: object
+    properties:
+      message:
+        type: string
+      loginSuccess:
+        type: boolean
+
+  LoginResponseSuccess:
+    type: object
+    properties:
+      username:
+        type: string
+      token:
+        type: string
+      uid:
+        type: integer
+      loginSucess:
+        type: boolean
